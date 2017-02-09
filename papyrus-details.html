@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`papyrus-details`
+Expand and collapse information with summary text displayed at all times
+
+@demo demo/index.html 
+-->
+
+<dom-module id="papyrus-details">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'papyrus-details',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'papyrus-details',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
