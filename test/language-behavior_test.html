@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../language-behavior.html">
+  </head>
+  <body>
+    <dom-module id="test-container">
+        <template></template>
+        <script>
+            Polymer({ is: 'test-container', behaviors: [ LanguageBehavior ] });
+        </script>
+    </dom-module>
+
+    <test-fixture id="test-1">
+      <template>
+          <test-container lang="cy"></test-container>
+      </template>
+    </test-fixture>    
+
+    <div lang="zh">
+        <test-fixture id="test-2">
+        <template>
+            <test-container></test-container>
+        </template>
+        </test-fixture>
+    </div>   
+
+    <test-fixture id="test-3">
+        <template>
+            <test-container></test-container>
+        </template>
+    </test-fixture>
+
+     <script>
+        suite('LanguageBehavior', () => {
+            test('fetches lang attribute defined on itself', () =>
+                assert.equal(fixture('test-1').language, "cy"));
+
+            test('fetches lang attribute defined on container', () =>
+                assert.equal(fixture('test-2').language, "zh"));
+
+            test('defaults to en', () =>
+                assert.equal(fixture('test-3').language, "en"));
+        });
+     </script>
+    </body>
+</html>

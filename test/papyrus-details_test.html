@@ -14,15 +14,56 @@
   <body>
     <test-fixture id="basic">
       <template>
-        <papyrus-details></papyrus-details>
+        <papyrus-details>
+          <summary>Header</summary>
+          <p>Details</p>
+        </papyrus-details>
+      </template>
+    </test-fixture>
+
+   <test-fixture id="height-test">
+      <template>
+        <papyrus-details>
+          <summary>Header</summary>
+          <div style="margin:20px;border:solid 5px black;height:100px"></div>
+        </papyrus-details>
       </template>
     </test-fixture>
 
     <script>
-      suite('papyrus-details', function() {
-        test('instantiating the element works', function() {
-          var element = fixture('basic');
-          assert.equal(element.is, 'papyrus-details');
+      suite('papyrus-details', () => {
+        let testContainerVisible = (fixture, expected) => {
+          let visible = !!fixture.$.expander.offsetHeight;
+          assert.equal(visible, expected);
+        };
+
+        test('content is hidden by default', () => testContainerVisible(fixture('basic'), false));
+
+        test('content is visible once link is clicked', () => {
+          let el = fixture('basic');
+          let [a] = el.getElementsByTagName('a');
+          a.click();
+          testContainerVisible(el, true);
+        });
+
+        test('link text is "Open" when collapsed', () => 
+          assert.equal("Open", fixture('basic').getElementsByTagName('a')[0].innerText));
+
+        test('link text changes to "Close" when expanded', () => {
+          let el = fixture('basic');
+          el.set('expanded', true);
+          assert.equal("Close", el.getElementsByTagName('a')[0].innerText);
+        });
+
+        test('sets the height of expander to enable animation', () => { 
+            let el = fixture('height-test');
+            assert.equal('150px', el.$.expander.style.height);
+        });
+
+        test('localises link text', () => { 
+          let el = fixture('basic');
+          el.set('language', 'fr');
+          assert.equal("Ouvrir", el.getElementsByTagName('a')[0].innerText);
         });
       });
     </script>

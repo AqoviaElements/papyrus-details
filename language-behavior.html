@@ -1,0 +1,9 @@
+<script>
+    var LanguageBehavior = { 
+        properties: { language: String },
+        attached: function() { 
+        function findLangAttribute(e) { return e ? e.lang || findLangAttribute(e.domHost || e.parentElement) : 'en'; }
+        this.set('language', findLangAttribute(this));
+        }
+    };
+</script>
