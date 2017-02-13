@@ -11,7 +11,8 @@
     <dom-module id="test-container">
         <template></template>
         <script>
-            Polymer({ is: 'test-container', behaviors: [ LanguageBehavior ] });
+            HTMLImports.whenReady(() => 
+                Polymer({ is: 'test-container', behaviors: [ LanguageBehavior ] }));
         </script>
     </dom-module>
 
