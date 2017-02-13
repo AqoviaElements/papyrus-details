@@ -1,6 +1,8 @@
 # \<papyrus-details\>
 
-Expand and collapse information with summary text displayed at all times
+Expandable/collapsible summary and details with animation
+
+[![Build status](https://travis-ci.org/AqoviaElements/papyrus-details.svg?branch=master)](https://travis-ci.org/AqoviaElements/papyrus-detailsT)
 
 ## Install the Polymer-CLI
 
