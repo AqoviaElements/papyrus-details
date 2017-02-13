@@ -1,5 +1,7 @@
 <script>
-    var LanguageBehavior = { 
+    // to be extracted to own repo
+    // @polymerBehavior
+    LanguageBehavior = {
         properties: { language: String },
         attached: function() { 
             function findLangAttribute(e) { return e ? e.lang || findLangAttribute(e.domHost || e.parentElement) : 'en'; }
