@@ -11,8 +11,10 @@
       #expander.hidden { height: 0px !important; }
       #toggle { float: right; }
     </style>
-    <a id="toggle" on-tap="toggle" href="javascript:void(0)">[[_getLinkText(expanded,language)]]</a>
-    <div><content select="summary"/></div>
+    <div>
+      <a id="toggle" on-tap="toggle" href="javascript:void(0)">[[_getLinkText(expanded,language)]]</a>
+      <content select="summary"/>
+    </div>
     <div id="expander" class$="[[_getHiddenClass(expanded)]]">
         <content/>
     </div>
