@@ -7,14 +7,15 @@
       :host {
         display: block;
       }
+      #summary-container { display: inline-block; width: calc(100% - 5em); }
       #expander { overflow:hidden; display: block; transition: height 400ms ease-in-out; }
       #expander.hidden { height: 0px !important; }
-      #toggle { float: right; }
+      #toggle { display: inline-block; }
     </style>
-    <div>
-      <a id="toggle" on-tap="toggle" href="javascript:void(0)">[[_getLinkText(expanded,language)]]</a>
+    <div id="summary-container">
       <content select="summary"/>
     </div>
+    <a id="toggle" on-tap="toggle" href="javascript:void(0)">[[_getLinkText(expanded,language)]]</a>
     <div id="expander" class$="[[_getHiddenClass(expanded)]]">
         <content/>
     </div>
