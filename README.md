@@ -11,6 +11,10 @@ Expandable/collapsible summary and details with animation
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="papyrus-details.html">
+    <style>
+      papyrus-details { font-family: Roboto; background-color: #ddd; padding: 1em; border-radius: 4px; } 
+      summary { font-size: 120%; font-weight: bold; }
+    </style>
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
@@ -19,6 +23,13 @@ Expandable/collapsible summary and details with animation
 ```html
 <papyrus-details>
   <summary>What is this component for?</summary>
-  <p>Use this component for presenting hidden information, questions and answers, summaries and details, or any drill-down information.</p>
+  <p>Use this component for presenting
+    <ul>
+      <li>hidden information</li>
+      <li>questions and answers</li>
+      <li>summaries and details</li>
+      <li>images, tables or figures</li>
+      <li>any drill-down information</li>
+  </ul></p>
 </papyrus-details>
 ```
