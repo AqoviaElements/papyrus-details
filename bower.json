@@ -3,7 +3,8 @@
   "description": "Expand and collapse information with summary text displayed at all times",
   "main": "papyrus-details.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0"
+    "polymer": "Polymer/polymer#^1.4.0",
+    "properties-from-ancestor-behavior": "^1.0"
   },
   "license": "http://polymer.github.io/LICENSE.txt",
   "devDependencies": {

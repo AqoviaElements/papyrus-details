@@ -1,0 +1,43 @@
+﻿<link rel="import" href="../../polymer/polymer.html" />
+<dom-module id="container-with-lang-choice">
+    <template>
+        <label>
+            Interface Language:
+            <select id="languageSelect" value="{{lang::input}}"></select>
+        </label>
+        <content select="*"></content>
+    </template>
+</dom-module>
+<script>
+    Polymer({
+        is: "container-with-lang-choice",
+        properties: {
+            lang: {
+                notify: true,
+                reflectToAttribute: true,
+            },
+            availableLanguagesExpr: {
+                type: String,
+                observer: '_availableLanguagesExprChanged',
+            },
+            availableLanguages: {
+                type: Array,
+                observer: '_availableLanguagesChanged',
+            },
+        },
+        _availableLanguagesExprChanged: function (availableLanguagesExpr) {
+            this.availableLanguages = eval(availableLanguagesExpr);
+        },
+        _availableLanguagesChanged: function (availableLanguages) {
+            // adding options here instead in <template> to suport IE11 - https://github.com/Polymer/polymer/issues/1735
+
+            this.$.languageSelect.innerHTML = '';
+
+            for (var i = 0; i < availableLanguages.length; ++i) {
+                var option = document.createElement('option');
+                option.innerText = availableLanguages[i];
+                this.$.languageSelect.appendChild(option);
+            }
+        },
+    });
+</script>
