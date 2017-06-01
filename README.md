@@ -11,11 +11,14 @@ Expandable/collapsible summary and details with animation
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="papyrus-details.html">
+	<link rel="import" href="./demo/container-with-lang-choice.html">
     <style>
       papyrus-details { font-family: Roboto; background-color: #ddd; padding: 1em; border-radius: 4px; } 
       summary { font-size: 120%; font-weight: bold; }
     </style>
-    <next-code-block></next-code-block>
+	<container-with-lang-choice lang="en" available-languages-expr="Object.getOwnPropertyNames(PapyrusDetails.resources)">
+      <next-code-block></next-code-block>
+	</container-with-lang-choice>
   </template>
 </custom-element-demo>
 ```

@@ -62,7 +62,7 @@
 
         test('localises link text', () => { 
           let el = fixture('basic');
-          el.set('language', 'fr');
+          el.lang = 'fr';
           assert.equal("Ouvrir", el.getElementsByTagName('a')[0].innerText);
         });
       });
